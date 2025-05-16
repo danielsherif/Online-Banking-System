@@ -1,189 +1,192 @@
-# Online Banking System - Architecture Documentation
+# Online Banking System - Information Architecture
 
 ## Current State Analysis
 
 ### Project Structure
 
-The current project is organized into separate modules by team members:
+The project is organized into separate modules, each handled by different team members:
 
 - `login_loan-Daniel/`: Login, signup, and loan management
-- `accounts-Rahma/`: Account management and transactions
+- `accounts-Rahma/`: Account management functionality
 - `CC-Karim/`: Credit card management
-- `notis-Dina/`: Notifications system
-- `report_pay-Youssef/`: Reports and payments
+- `notis-Dina/`: Notification system
+- `report_pay-Youssef/`: Reports and bill payments
+- `unified-banking-app/`: Entry point and navigation
+
+### Current Architecture
+
+- **Frontend**: Pure HTML, CSS, and vanilla JavaScript
+- **No Backend**: Static website with client-side functionality
+- **No Database**: Data is managed through browser storage
+- **No Build Process**: Direct file serving
 
 ### Current Issues
 
 1. **Code Organization**
 
-   - Disconnected modules with no clear integration
-   - Duplicate code across files (especially in JS files)
-   - Inconsistent file naming and structure
-   - Mixed concerns in single files
+   - Separate modules with minimal integration
+   - Duplicate code across modules
+   - Inconsistent coding styles
+   - No shared resources or utilities
 
 2. **Technical Debt**
 
-   - Outdated frontend practices
-   - No proper state management
-   - Inconsistent styling approach
-   - No type safety
-   - No testing infrastructure
+   - Legacy Webflow-generated code
+   - Inconsistent error handling
+   - Limited browser compatibility
+   - No automated testing
 
 3. **User Experience**
-   - Basic UI with limited interactivity
-   - No responsive design patterns
-   - Limited accessibility features
-   - No proper form validation
-   - No loading states or error handling
+   - Disconnected module navigation
+   - Inconsistent UI/UX across modules
+   - Limited responsive design
+   - Basic form validation
 
 ## Proposed Architecture
 
 ### Technology Stack
 
-- **Framework**: React with TypeScript
-- **Styling**: Tailwind CSS
-- **State Management**: Zustand
-- **Form Handling**: React Hook Form with Zod validation
-- **Testing**: Vitest + React Testing Library
-- **Build Tool**: Vite
-- **Code Quality**: ESLint + Prettier
+- **Frontend**: HTML5, CSS3, JavaScript (ES6+)
+- **Storage**: Browser LocalStorage/SessionStorage
+- **Styling**: CSS with BEM methodology
+- **Testing**: Manual testing
 
-### New Project Structure
+### Project Structure
 
 ```
-src/
-├── components/           # Reusable UI components
-│   ├── common/          # Shared components
-│   ├── forms/           # Form components
-│   └── layout/          # Layout components
-├── features/            # Feature-specific code
-│   ├── auth/           # Authentication
-│   ├── accounts/       # Account management
-│   ├── loans/          # Loan management
-│   ├── credit-cards/   # Credit card features
-│   └── transactions/   # Transaction management
-├── hooks/              # Custom React hooks
-├── context/            # Global state management
-├── utils/              # Helper functions
-├── types/              # TypeScript definitions
-├── styles/             # Global styles
-└── pages/              # Page components
+├── unified-banking-app/          # Main entry point
+│   ├── index.html               # Landing page
+│   ├── css/                     # Shared styles
+│   └── js/                      # Shared utilities
+├── login_loan-Daniel/           # Authentication & Loans
+├── accounts-Rahma/              # Account Management
+├── CC-Karim/                    # Credit Cards
+├── notis-Dina/                  # Notifications
+├── report_pay-Youssef/          # Reports & Payments
+└── assets/                      # Shared resources
+    ├── images/
+    └── icons/
 ```
 
 ### Key Improvements
 
 1. **Code Organization**
 
-   - Feature-based architecture
-   - Clear separation of concerns
-   - Consistent file naming and structure
-   - Type safety with TypeScript
-   - Reusable components
+   - Shared CSS and JavaScript utilities
+   - Consistent coding standards
+   - Modular component structure
+   - Clear file naming conventions
 
 2. **User Experience**
 
-   - Modern, responsive design
-   - Proper form validation
-   - Loading states and error handling
-   - Accessibility compliance
-   - Smooth transitions and animations
+   - Unified navigation system
+   - Consistent UI/UX across modules
+   - Improved responsive design
+   - Enhanced form validation
+   - Better error handling
 
 3. **Development Experience**
 
-   - Hot module replacement
-   - Type checking
-   - Automated testing
-   - Code quality tools
    - Clear documentation
+   - Code style guide
+   - Component library
+   - Shared utilities
 
 4. **Performance**
-   - Code splitting
-   - Lazy loading
    - Optimized assets
-   - Caching strategies
-   - Performance monitoring
+   - Minified CSS/JS
+   - Efficient DOM manipulation
+   - Browser caching
 
 ## Implementation Plan
 
-### Phase 1: Setup and Infrastructure
+### Phase 1: Foundation
 
-1. Initialize new project with Vite
-2. Set up TypeScript configuration
-3. Configure ESLint and Prettier
-4. Set up testing infrastructure
-5. Configure Tailwind CSS
+1. Create shared utilities
+2. Establish coding standards
+3. Set up basic navigation
+4. Create component library
 
-### Phase 2: Core Components
+### Phase 2: Module Integration
 
-1. Create base layout components
-2. Implement authentication system
-3. Build form components
-4. Create reusable UI components
-5. Set up global state management
+1. Standardize module interfaces
+2. Implement shared styles
+3. Create unified navigation
+4. Add cross-module functionality
 
-### Phase 3: Feature Implementation
+### Phase 3: Enhancement
 
-1. Account management
-2. Transaction system
-3. Loan management
-4. Credit card features
-5. Notification system
-
-### Phase 4: Polish and Optimization
-
-1. Add animations and transitions
-2. Implement error boundaries
-3. Add loading states
+1. Improve responsive design
+2. Add form validation
+3. Enhance error handling
 4. Optimize performance
-5. Add comprehensive tests
+
+### Phase 4: Polish
+
+1. Add loading states
+2. Improve animations
+3. Enhance accessibility
+4. Add browser compatibility
 
 ## Migration Strategy
 
-1. **Assessment**
+### Assessment
 
-   - Document all current features
-   - Identify critical functionality
-   - Map user flows
+1. Review current codebase
+2. Identify shared patterns
+3. Document dependencies
+4. Plan integration points
 
-2. **Development**
+### Development
 
-   - Build new features in parallel
-   - Maintain feature parity
-   - Implement improvements incrementally
+1. Create shared resources
+2. Update module interfaces
+3. Implement navigation
+4. Add cross-module features
 
-3. **Testing**
+### Testing
 
-   - Unit tests for components
-   - Integration tests for features
-   - E2E tests for critical flows
+1. Manual testing
+2. Cross-browser testing
+3. Responsive testing
+4. User acceptance testing
 
-4. **Deployment**
-   - Staged rollout
-   - Feature flags
-   - Performance monitoring
-   - User feedback collection
+### Deployment
+
+1. File optimization
+2. Cache configuration
+3. Error monitoring
+4. Performance tracking
 
 ## Success Metrics
 
-1. **Code Quality**
+### Code Quality
 
-   - 80% test coverage
-   - Zero critical bugs
-   - < 100ms first contentful paint
-   - 95+ Lighthouse score
+- Consistent coding style
+- No duplicate code
+- Clear documentation
+- Modular structure
 
-2. **User Experience**
+### User Experience
 
-   - 90% task completion rate
-   - < 2s page load time
-   - 95% accessibility score
-   - Positive user feedback
+- Unified navigation
+- Consistent UI/UX
+- Responsive design
+- Error handling
 
-3. **Development**
-   - Reduced build time
-   - Faster development cycles
-   - Improved code maintainability
-   - Better developer experience
+### Development Efficiency
+
+- Shared resources
+- Clear standards
+- Component reuse
+- Easy maintenance
+
+### Performance
+
+- Fast load times
+- Smooth interactions
+- Efficient storage
+- Browser compatibility
 
 ## UI Preservation & Visual Consistency
 
