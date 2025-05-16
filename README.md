@@ -58,15 +58,3 @@ Contributions are welcome! Please open an issue or submit a pull request for imp
 ## 📄 License
 
 This project is licensed under the MIT License.
-
-## 🙏 Acknowledgments
-
-- Project contributors
-- Webflow (for initial UI design)
-- Open-source community
-
----
-
-<div align="center">
-  <sub>Built with ❤️ by the Online Banking Team</sub>
-</div>
