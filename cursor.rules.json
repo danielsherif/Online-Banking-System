@@ -1,0 +1,119 @@
+{
+    "project": {
+        "name": "Online Banking System",
+        "type": "frontend",
+        "version": "2.0.0"
+    },
+    "rules": {
+        "architecture": {
+            "pattern": "feature-based",
+            "structure": {
+                "src": {
+                    "components": "Reusable UI components",
+                    "features": "Feature-specific components and logic",
+                    "layouts": "Page layouts and templates",
+                    "styles": "Global styles and theme",
+                    "utils": "Helper functions and utilities",
+                    "hooks": "Custom React hooks",
+                    "context": "Global state management",
+                    "types": "TypeScript type definitions"
+                }
+            }
+        },
+        "coding": {
+            "language": "typescript",
+            "framework": "react",
+            "styling": "tailwind",
+            "state": "zustand",
+            "form": "react-hook-form",
+            "validation": "zod",
+            "testing": "vitest",
+            "linting": {
+                "eslint": true,
+                "prettier": true
+            }
+        },
+        "components": {
+            "naming": "PascalCase",
+            "structure": {
+                "required": [
+                    "index.ts",
+                    "ComponentName.tsx",
+                    "ComponentName.test.tsx",
+                    "ComponentName.styles.ts"
+                ]
+            }
+        },
+        "styles": {
+            "approach": "utility-first",
+            "theme": {
+                "colors": {
+                    "primary": [
+                        "#1a365d",
+                        "#2c5282",
+                        "#2b6cb0"
+                    ],
+                    "secondary": [
+                        "#2d3748",
+                        "#4a5568",
+                        "#718096"
+                    ],
+                    "accent": [
+                        "#805ad5",
+                        "#9f7aea",
+                        "#b794f4"
+                    ]
+                }
+            }
+        },
+        "quality": {
+            "testing": {
+                "coverage": 80,
+                "required": [
+                    "unit",
+                    "integration",
+                    "e2e"
+                ]
+            },
+            "performance": {
+                "lighthouse": {
+                    "performance": 90,
+                    "accessibility": 95,
+                    "best-practices": 95,
+                    "seo": 90
+                }
+            }
+        },
+        "security": {
+            "authentication": {
+                "required": true,
+                "type": "jwt",
+                "storage": "httpOnly cookies"
+            },
+            "validation": {
+                "input": "required",
+                "sanitization": "required"
+            }
+        },
+        "accessibility": {
+            "required": true,
+            "standards": [
+                "WCAG 2.1",
+                "ARIA"
+            ],
+            "testing": [
+                "axe",
+                "wave"
+            ]
+        },
+        "documentation": {
+            "required": true,
+            "types": [
+                "README.md",
+                "ARCHITECTURE.md",
+                "API.md",
+                "COMPONENTS.md"
+            ]
+        }
+    }
+}

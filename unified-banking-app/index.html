@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unified Online Banking System</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f7f8fa;
+        }
+
+        .navbar {
+            background: #fff;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 1rem 2rem;
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .navbar a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+
+        #module-frame {
+            width: 100vw;
+            height: calc(100vh - 60px);
+            border: none;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <a href="#login">Login</a>
+        <a href="#accounts">Accounts</a>
+        <a href="#credit-cards">Credit Cards</a>
+        <a href="#notifications">Notifications</a>
+        <a href="#loans">Loans</a>
+        <a href="#reports">Reports</a>
+    </nav>
+    <iframe id="module-frame" src=""></iframe>
+    <script>
+        const routes = {
+            '#login': '../login_loan-Daniel/login.html',
+            '#accounts': '../accounts-Rahma/openaccount.html',
+            '#credit-cards': '../CC-Karim/main.html',
+            '#notifications': '../notis-Dina/notis.html',
+            '#loans': '../login_loan-Daniel/loans.html',
+            '#reports': '../report_pay-Youssef/Reports/home.html'
+        };
+        function loadModule() {
+            const hash = location.hash || '#login';
+            document.getElementById('module-frame').src = routes[hash] || routes['#login'];
+        }
+        window.addEventListener('hashchange', loadModule);
+        window.addEventListener('DOMContentLoaded', loadModule);
+    </script>
+</body>
+
+</html>
